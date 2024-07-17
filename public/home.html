@@ -3,9 +3,53 @@
 <head>
   <title>Ứng dụng Chat</title>
   <script src="/socket.io/socket.io.js"></script>
+   <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+<style>
+ p{
+  
+  text-align: center ;
+  color: red ;
+  
+ }
+ #khu-chat{
+  width: 85vw;
+  height: 50vh;
+  background-color: #7177B9;
+  overflow: scroll;
+ }
+ #input-chat{
+  margin-bottom: 50vh;
+ }
+ ul li{
+  display: block;
+  margin-left: 0;
+  
+  
+  
+  list-style-type: none;
+  
+ }
+ ul{
+  display: block;
+  margin: 0;
+  
+ }
+ 
+</style>
   
   <body>
-  <h1>Ứng dụng Chat</h1>
+  <p>Ứng dụng Chat</p>
+     <div id="khu-chat">
+    <ul id="my-list">
+     
+     
+    </ul>
+
+   </div>
+
 
   
   
@@ -16,7 +60,7 @@
     <button id="gui">Gửi </button>
     
     
-    <ul id="my-list"></ul>
+    
     
   </div>
   
@@ -34,7 +78,9 @@
   gui.addEventListener('click', () => {
     let chat = document.getElementById('chat').value;
     
+    
     socket.emit('gui',  chat );
+    document.getElementById('chat').value = '';
     
     
   });
@@ -51,18 +97,6 @@
   
 
     });
-  
-  
-  
-  
-    
-
-  
-  
-  
-  
-  
-    
   </script>
 </head>
 </html>
