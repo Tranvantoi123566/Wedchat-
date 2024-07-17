@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log('co Nguoi ket noi:', socket.id);
   
+  
   socket.on('gui',(data) =>{
     console.log(data)
     io.sockets.emit('gui-di',data);
