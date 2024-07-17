@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ứng dụng Chat</title>
+  <script src="/socket.io/socket.io.js"></script>
+  
+  <body>
+  <h1>Ứng dụng Chat</h1>
+
+  
+  
+  
+  <div>
+    <label for="messageInput">Tin nhắn:</label>
+    <input type="text" id="chat">
+    <button id="gui">Gửi </button>
+    
+    
+    <ul id="my-list"></ul>
+    
+  </div>
+  
+</body>
+  
+  
+  <script>
+  var socket = io();
+    
+  
+  
+  
+  let gui = document.getElementById('gui');
+  
+  gui.addEventListener('click', () => {
+    let chat = document.getElementById('chat').value;
+    
+    socket.emit('gui',  chat );
+    
+    
+  });
+  
+  socket.on('gui-di', (data) => {
+
+    const li = document.createElement('li');
+    const list = document.getElementById('my-list');
+    li.textContent = data;
+    list.appendChild(li);
+    
+  
+    
+  
+
+    });
+  
+  
+  
+  
+    
+
+  
+  
+  
+  
+  
+    
+  </script>
+</head>
+</html>
